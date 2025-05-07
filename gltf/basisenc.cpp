@@ -110,6 +110,14 @@ static void fillParams(basisu::basis_compressor_params& params, const char* inpu
 	params.m_source_filenames.resize(1);
 	params.m_source_filenames[0] = input;
 
+	if (info.kind == TextureKind_Normal)
+    {
+        params.m_swizzle[0] = 0;
+        params.m_swizzle[1] = 0;
+        params.m_swizzle[2] = 0;
+        params.m_swizzle[3] = 1;
+    }
+
 	params.m_out_filename = output;
 
 	params.m_status_output = false;
